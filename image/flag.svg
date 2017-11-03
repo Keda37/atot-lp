@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="40px" viewBox="0 0 36 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>FDBE8521-9033-41D8-8CDF-9A0B0AB801B1</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="1.16743491e-14%" y1="-4.4408921e-14%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#57CA85" offset="0%"></stop>
+            <stop stop-color="#194F68" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="АТОТ-LP-1440" transform="translate(-555.000000, -742.000000)" fill="url(#linearGradient-1)">
+            <g id="Heder">
+                <g id="icon-heder" transform="translate(175.000000, 738.000000)">
+                    <g id="flag" transform="translate(380.000000, 4.000000)">
+                        <g id="shape">
+                            <path d="M0.58578644,0.58578644 C0.94771526,0.22385762 1.44771526,0 2,0 L12,0 C13.7309617,0 15.4152306,0.56142298 16.8,1.6 L21.6,5.2 C22.2923846,5.71928852 23.1345192,6 24,6 L32,6 C34.209139,6 36,7.790861 36,10 L36,30 C36,32.209139 34.209139,34 32,34 L24,34 C22.2690382,34 20.5847694,33.438577 19.2,32.4 L14.4,28.8 C13.7076153,28.2807114 12.8654809,28 12,28 L4,28 L4,38 C4,39.1045694 3.1045695,40 2,40 C0.8954305,40 0,39.1045694 0,38 L0,2 C0,1.44771526 0.22385762,0.94771526 0.58578644,0.58578644 Z M4,4 L4,24 L12,24 C13.7309617,24 15.4152306,24.561423 16.8,25.6 L21.6,29.2 C22.2923846,29.7192886 23.1345192,30 24,30 L32,30 L32,10 L24,10 C22.2690382,10 20.5847694,9.43857702 19.2,8.4 L14.4,4.8 C13.7076153,4.28071148 12.8654809,4 12,4 L4,4 Z" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

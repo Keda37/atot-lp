@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="36px" viewBox="0 0 48 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>675A0390-F66A-4C0C-B8E3-9D47CBEC2FF2</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="1.16743491e-14%" y1="-4.4408921e-14%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#57CA85" offset="0%"></stop>
+            <stop stop-color="#194F68" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="АТОТ-LP-1440" transform="translate(-113.000000, -8434.000000)" fill="url(#linearGradient-1)">
+            <g id="Icon" transform="translate(110.000000, 8242.000000)">
+                <g transform="translate(0.000000, 188.000000)" id="laptop">
+                    <g transform="translate(3.000000, 4.000000)">
+                        <g id="shape">
+                            <path d="M41,24 L41,8 C41,5.790861 39.209139,4 37,4 L11,4 C8.790861,4 7,5.790861 7,8 L7,24 L41,24 Z M3,24.8026932 L3,8 C3,3.581722 6.581722,0 11,0 L37,0 C41.418278,0 45,3.581722 45,8 L45,24.8026932 C46.7934042,25.8401214 48,27.779153 48,30 C48,33.3137084 45.3137084,36 42,36 L6,36 C2.6862915,36 -3.33066908e-16,33.3137084 0,30 C2.23221404e-16,27.779153 1.20659589,25.8401214 3,24.8026932 Z M42,28 L28.7579468,28 C25.9790808,30.2091888 22.0205424,30.2091834 19.2417825,28 L6,28 C4.8954305,28 4,28.8954306 4,30 C4,31.1045694 4.8954305,32 6,32 L42,32 C43.1045694,32 44,31.1045694 44,30 C44,28.8954306 43.1045694,28 42,28 Z" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

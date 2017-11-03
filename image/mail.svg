@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="36px" viewBox="0 0 45 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>37C03021-8BAA-4071-BDB3-E2CB2EA57B95</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="1.16743491e-14%" y1="-4.4408921e-14%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#57CA85" offset="0%"></stop>
+            <stop stop-color="#194F68" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mail" fill-rule="nonzero" fill="url(#linearGradient-1)">
+            <g id="shape">
+                <path d="M45,11.9550671 C45.000704,11.9856191 45.0007002,12.0160991 45,12.0464864 L45,28 C45,32.418278 41.418278,36 37,36 L9,36 C4.581722,36 1,32.418278 1,28 L1,12.046493 C0.999299778,12.0160991 0.999296034,11.9856191 1,11.9550671 L1,8 C1,3.581722 4.581722,0 9,0 L37,0 C41.418278,0 45,3.581722 45,8 L45,11.9550627 L45,11.9550671 Z M41,10.5119387 L41,8 C41,5.790861 39.209139,4 37,4 L9,4 C6.790861,4 5,5.790861 5,8 L5,10.5119387 L22.4253042,15.73953 C22.8001816,15.8519932 23.1998184,15.8519932 23.5746958,15.73953 L41,10.5119387 Z M41,14.6880614 L24.7240874,19.5708352 C23.599455,19.9082248 22.400545,19.9082248 21.2759126,19.5708352 L5,14.6880614 L5,28 C5,30.209139 6.790861,32 9,32 L37,32 C39.209139,32 41,30.209139 41,28 L41,14.6880614 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="168px" height="168px" viewBox="0 0 168 168" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>CE500920-8452-49F6-AEFF-3B1A63CDA67B</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="1.16743491e-14%" y1="-4.4408921e-14%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#57CA85" offset="0%"></stop>
+            <stop stop-color="#194F68" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="АТОТ-LP-1440" transform="translate(-636.000000, -6836.000000)">
+            <g id="Stage" transform="translate(0.000000, 6672.000000)">
+                <g id="1,2,3" transform="translate(184.000000, 188.000000)">
+                    <g id="list-check-big" transform="translate(476.000000, 0.000000)">
+                        <g>
+                            <circle id="Oval" fill="#FFFFFF" cx="60" cy="60" r="60"></circle>
+                            <circle id="Oval" stroke="#E1E1E1" fill="#FFFFFF" cx="60" cy="60" r="40"></circle>
+                            <g id="list-check" transform="translate(43.000000, 47.000000)" fill-rule="nonzero" fill="url(#linearGradient-1)">
+                                <path d="M2,4 C0.8954305,4 0,3.1045695 0,2 C0,0.8954305 0.8954305,0 2,0 L30,0 C31.1045694,0 32,0.8954305 32,2 C32,3.1045695 31.1045694,4 30,4 L2,4 Z M2,14 C0.8954305,14 0,13.1045694 0,12 C0,10.8954306 0.8954305,10 2,10 L30,10 C31.1045694,10 32,10.8954306 32,12 C32,13.1045694 31.1045694,14 30,14 L2,14 Z M2,24 C0.8954305,24 0,23.1045694 0,22 C0,20.8954306 0.8954305,20 2,20 L16,20 C17.1045694,20 18,20.8954306 18,22 C18,23.1045694 17.1045694,24 16,24 L2,24 Z M25.1213204,21.1923882 L29.363961,25.4350288 L37.8492424,16.9497474 C38.630291,16.1686988 39.896621,16.1686988 40.6776696,16.9497474 C41.4587182,17.730796 41.4587182,18.997126 40.6776696,19.7781746 L30.7781746,29.6776696 C29.997126,30.4587182 28.730796,30.4587182 27.9497474,29.6776696 L22.2928932,24.0208152 C21.5118446,23.2397666 21.5118446,21.9734368 22.2928932,21.1923882 C23.0739418,20.4113396 24.3402718,20.4113396 25.1213204,21.1923882 Z" id="shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

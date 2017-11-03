@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="168px" height="168px" viewBox="0 0 168 168" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>2DB71B0E-CAA7-42E8-9925-78A63B6E6507</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="1.16743491e-14%" y1="-4.4408921e-14%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#57CA85" offset="0%"></stop>
+            <stop stop-color="#194F68" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="АТОТ-LP-1440" transform="translate(-216.000000, -6836.000000)">
+            <g id="Stage" transform="translate(0.000000, 6672.000000)">
+                <g id="1,2,3" transform="translate(184.000000, 188.000000)">
+                    <g id="mail-at-big" transform="translate(56.000000, 0.000000)">
+                        <g>
+                            <circle id="Oval" fill="#FFFFFF" cx="60" cy="60" r="60"></circle>
+                            <circle id="Oval" stroke="#E1E1E1" fill="#FFFFFF" cx="60" cy="60" r="40"></circle>
+                            <g id="mail-at" transform="translate(38.000000, 38.000000)" fill-rule="nonzero" fill="url(#linearGradient-1)">
+                                <path d="M33,22 L33,23.1 C33,24.9225396 34.4774604,26.4 36.3,26.4 C38.1225396,26.4 39.6,24.9225396 39.6,23.1 L39.6,22 C39.6,12.2797884 31.7202116,4.4 22,4.4 C12.2797884,4.4 4.4,12.2797884 4.4,22 C4.4,31.7202116 12.2797884,39.6 22,39.6 C26.2823033,39.6 30.3217314,38.0680566 33.4960195,35.3271565 C34.4156556,34.5330792 35.8048946,34.6348647 36.5989721,35.5545005 C37.3930495,36.4741366 37.2912641,37.8633759 36.371628,38.6574531 C32.4055794,42.082014 27.3482345,44 22,44 C9.8497355,44 0,34.1502645 0,22 C0,9.8497355 9.8497355,0 22,0 C34.1502645,0 44,9.8497355 44,22 L44,23.1 C44,27.3525925 40.5525925,30.8 36.3,30.8 C34.1698401,30.8 32.2417088,29.9350132 30.8476872,28.5371211 C28.8439197,31.2446365 25.6269534,33 22,33 C15.9248677,33 11,28.0751321 11,22 C11,15.9248677 15.9248677,11 22,11 C28.0751321,11 33,15.9248677 33,22 Z M22,28.6 C25.6450792,28.6 28.6,25.6450792 28.6,22 C28.6,18.3549208 25.6450792,15.4 22,15.4 C18.3549208,15.4 15.4,18.3549208 15.4,22 C15.4,25.6450792 18.3549208,28.6 22,28.6 Z" id="Combined-Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
