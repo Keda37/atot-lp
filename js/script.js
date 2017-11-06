@@ -1,14 +1,24 @@
 $(function () {
 
 
-  $(document).ready(function () {
-    $('.calculator__human-number').val('1'); 
-    $('.calculator__human-price').text('3 500');
-
-  });
-
-
+////////////////////////////////////////////////
   // калькулятор
+////////////////////////////////////////////////
+
+
+var onepricemember = 2500; // стоимость одного обучения
+var consultexpert = 0; // стоимость консультации эксперта
+var priceforsale = 15000; // стоимость до бесплатной доставки
+var delivery = 1000; // стоимость доставки
+var progressivesale = 0.02; // скидка при большом кол-ве обучаемых
+var progressivmember = 10; // кол-во обучаемых для скидки
+
+$(document).ready(function () {
+  if ($('.calculator__human-number').val() == '' ) {
+    $('.calculator__human-number').val(1);
+  }
+  calculator();
+});
 
   var oldvalinput = $('.calculator__human-number').val(); // первоначальное значение поля
 
@@ -51,14 +61,6 @@ $('.calculator__human-number').on('change keyup input click' , function() {
   calculator();
 });
 
-
-var onepricemember = 2500; // стоимость одного обучения
-var consultexpert = 0; // стоимость консультации эксперта
-var priceforsale = 15000; // стоимость до бесплатной доставки
-var delivery = 1000; // стоимость доставки
-var progressivesale = 0.02; // скидка при большом кол-ве обучаемых
-var progressivmember = 10; // кол-во обучаемых для скидки
-
 function calculator() {
   var member = $('.calculator__human-number').val(); // берем значение кол-ва
   var summ;
@@ -87,30 +89,36 @@ if ( summ < priceforsale ) {
 $('.calculator__human-price').text(String(summ).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 '));
 }
 
+//////////////////////////////////////////
+// Конец калькулятора 
+/////////////////////////////////////////
 
+
+//////////////////////////////////////
+// блок с формой
+//////////////////////////////////////
+
+$('.button__next').click(function(e) {
+  e.preventDefault();
+  $('.discount-block__title').text('Заявка на обучение');
+  $(this).fadeOut(300);
+  $('.discount-block').addClass('discount-block--one-step');
+  $('.discount-block__stage').fadeIn(300);
+  $('.one-step').fadeIn(300);
+});
+
+
+
+
+
+
+///////////////////////////////////////////////
+//  Окончание блока с формой
+/////////////////////////////////////////////
 
 
 $('.dropdown__item-top').click(function () {
   $(this).parent().toggleClass('active-dropdown');
-});
-
-$('.traning-block__more-link').click(function () {
-  var text = $(this).text();
-  setTimeout(function () {
-    $('.traning-block__more-link').text(text == "Подробнее" ? "Свернуть" : "Подробнее");
-  }, 300);
-  if (!$('.traning-block__more-text').hasClass('active-text')) {
-    $('.traning-block__more-text').show();
-    setTimeout(function () {
-      $('.traning-block__more-text').toggleClass('active-text');
-    }, 100);
-  } else {
-    $('.traning-block__more-text').toggleClass('active-text');
-    setTimeout(function () {
-      $('.traning-block__more-text').hide();
-    }, 500);
-
-  }
 });
 
 
@@ -132,11 +140,9 @@ $('.form-item__input').click( function() {
 });
 
 $('.form-item__input').focusout(function() {
-  var label = $(this).attr('placeholder');
   var field = $(this).val();
   var fieldtrim = $.trim(field);
   if (fieldtrim == '') {
-    $(this).attr('placeholder', label);
     $(this).removeClass('active');
     $(this).val("");
   }

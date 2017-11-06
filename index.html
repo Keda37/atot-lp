@@ -176,7 +176,7 @@
               <h3 class="calculator__human-title">Сколько человек необходимо обучить?</h3>
               <div class="calculator__human-wrapper">
                 <div class="calculator__human-min">-</div>
-                <input class="calculator__human-number" type="number" id="calc-input" value="1" min="0" step="1">
+                <input class="calculator__human-number" type="number" id="calc-input" min="0" step="1">
                 <div class="calculator__human-plus">+</div>
               </div>
               <div class="calculator__human-price-wrapper">
@@ -186,7 +186,7 @@
               <div class="calculator__human-text">Для получения дополнительной скидка в 10% заполнените электронную форму заявки на нашем сайте.</div>
             </div>
             <div class="calculator__form-wrapper">
-              <form class="calculator__form" method="POST">
+              <form class="calculator__form">
                 <div class="form-item">
                   <input type="text" class="form-item__input" placeholder="Ваше имя"/>
                 </div>
@@ -277,10 +277,35 @@
           </div>
         </div>
       </div>
-      <div class="discount-block">
+      <div class="discount-block" id="submit__application">
         <div class="wrapper">
           <div class="discount-block__title">Заполни заявку на сайте<br>и получи дополнительную скидку 10%!</div>
-          <a class="discount-block__button button__form">Получить скидку 10%</a>
+          <ul class="discount-block__stage">
+            <li class="discount-block__stage-item active-stage">1</li>
+            <li class="discount-block__stage-item discount-block__stage-item--center">2</li>
+            <li class="discount-block__stage-item">3</li>
+          </ul>
+          <form class="application-form" method="POST" >
+            <fieldset class="one-step">
+              <div class="form-item">
+                <input type="text" class="form-item__input" placeholder="ФИО"/>
+              </div>
+              <div class="form-item">
+                <input type="text" class="form-item__input" placeholder="Телефон"/>
+              </div>
+              <div class="form-item">
+                <input type="text" class="form-item__input" placeholder="E-mail"/>
+              </div>
+              <div class="form-item">
+                <div class="form-item__checkbox">
+                  <input type="checkbox" id="agreement-сheck-two" checked>
+                  <label for="agreement-сheck-two">Я даю согласие на обработку моих персональных данных</label>
+                </div>
+              </div>
+              <input type="submit" value="Далее" class="form-item__submit">
+            </fieldset>
+          </form>
+          <a class="discount-block__button button__next">Получить скидку 10%</a>
         </div>
       </div>
       <div class="video-block">

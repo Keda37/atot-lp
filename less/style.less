@@ -1034,123 +1034,7 @@ body {
       box-sizing: border-box;
       padding: 40px 52px;
     }
-
-    .form-item {
-      margin-bottom: 25px;
-      width: 100%;
-      display: block;
-
-      &__input {
-        width: 100%;
-        padding: 0 20px;
-        margin: 0;
-        border: 0;
-        outline: none;
-        height: 50px;
-        border-radius: 3px;
-        background: @main-bg-col;
-        font-size: 16px;
-        line-height: 50px;
-        text-align: left;
-        color: @color-text-def;
-        box-sizing: border-box;
-        transition: @all-transition;
-        opacity: 0.8;
-
-        &.active {
-          opacity: 1;
-        }
-
-
-        &:hover {
-          cursor: pointer;
-          opacity: 1;
-        }
-
-        &:focus {
-          opacity: 1;
-        }
-
-        &::-webkit-input-placeholder {opacity: 0.51; color: @color-text-def;}
-        &::-moz-placeholder          {opacity: 0.51; color: @color-text-def;}/* Firefox 19+ */
-        &:-moz-placeholder           {opacity: 0.51; color: @color-text-def;}/* Firefox 18- */
-        &:-ms-input-placeholder      {opacity: 0.51; color: @color-text-def;}
-
-      }
-
-      &__checkbox {
-        input {
-          display: none;
-
-          &:checked + label:after {
-           background-color: #fff;
-         }
-       }
-
-       label {
-        font-size: 16px;
-        text-align: left;
-        color: @main-color;
-        position: relative;
-        padding-left: 45px;
-        max-width: 268px;
-        display: block;
-        .ma;
-        box-sizing: border-box;
-        margin-top: 29px;
-        line-height: 20px;
-        cursor: pointer;
-
-        &:before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 3px;
-          width: 24px;
-          height: 24px;
-          border: solid 2px #fff;
-          border-radius: 100%;
-          box-sizing: border-box;
-        }
-
-        &:after {
-          width: 10px;
-          height: 10px;
-          background-color: transparent;
-          content: '';
-          position: absolute;
-          left: 7px;
-          top: 10px;
-          border-radius: 100%;
-          transition: @all-transition;
-        }
-
-      }
-    }
-
-    &__submit {
-      height: 60px;
-      background-color: @main-color;
-      font-size: 17px;
-      line-height: 20px;
-      border: none;
-      border-radius: 30px;
-      color: @color-text-def;
-      width: 100%;
-      font-size: 17px;
-      text-align: center;
-      cursor: pointer;
-      outline: none;
-      padding: 0;
-      margin-top: 15px;
-      transition: @all-transition;
-
-      &:hover {
-        opacity: 0.9;
-      }
-    }
   }
-}
 
 }
 .video-info {
@@ -1487,6 +1371,7 @@ body {
   padding-bottom: 100px;
   background: url(../image/form-img.jpg) center no-repeat;
   position: relative;
+  transition: .5s;
 
   &:before {
     content: '';
@@ -1544,6 +1429,89 @@ body {
 
     &:hover:before {
       opacity: 1;
+    }
+  }
+
+  &--one-step {
+    &:before {
+      display: none;
+    }
+    background-image: linear-gradient(298deg, #57ca85, #194f68);
+  }
+
+  &__stage {
+    margin-top: 40px;
+    margin-bottom: 0;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    max-width: 590px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 15px;
+      height: 1px;
+      left: 8px;
+      right: 8px;
+      background: rgba(255,255,255,.2);
+    }
+
+    &-item {
+      display: inline-block;
+      width: 30px;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 28px;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      padding-bottom: 45px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,.2);
+        box-sizing: border-box;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #ffffff;
+      }
+
+      &.active-stage {
+        &:before {
+          background-color: #fff;
+          border-color: #fff;
+        }
+        &:after {
+          background-image: linear-gradient(315deg, #57ca85, #194f68);
+
+        }
+      }
+
+
+      &--center {
+        margin-left: 245px;
+        margin-right: 245px;
+      }
     }
   }
 
@@ -2197,133 +2165,143 @@ body {
 .application-form {
   max-width: 380px;
   .ma;
-  margin-top: 80px;
+  margin-top: 60px;
   position: relative;
   z-index: 2;
-  
-  .form-item {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    width: 100%;
-    display: block;
 
-    &__input {
-      width: 100%;
-      padding: 0 20px;
-      margin: 0;
-      border: 0;
-      outline: none;
-      height: 50px;
-      border-radius: 3px;
-      background: @main-bg-col;
-      font-size: 16px;
-      line-height: 50px;
-      text-align: left;
-      color: @color-text-form;
-      box-sizing: border-box;
-      transition: @all-transition;
-      opacity: 0.8;
-      transition: border .3s;
-
-      &.active {
-        opacity: 1;
-      }
-
-
-      &:hover {
-        cursor: pointer;
-        opacity: 1;
-      }
-
-      &:focus {
-        opacity: 1;
-      }
-
-      &::-webkit-input-placeholder {opacity: 0.51; color: @color-text-form;}
-      &::-moz-placeholder          {opacity: 0.51; color: @color-text-form;}/* Firefox 19+ */
-      &:-moz-placeholder           {opacity: 0.51; color: @color-text-form;}/* Firefox 18- */
-      &:-ms-input-placeholder      {opacity: 0.51; color: @color-text-form;}
-
-    }
-
-    &__checkbox {
-      input {
-        display: none;
-
-        &:checked + label:after {
-         background-color: #b20933;
-       }
-     }
-
-     label {
-      font-size: 16px;
-      text-align: left;
-      color: @color-text-def;
-      position: relative;
-      padding-left: 64px;
-      max-width: 300px;
-      display: block;
-      .ma;
-      box-sizing: border-box;
-      margin-top: 30px;
-      line-height: 20px;
-      cursor: pointer;
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 24px;
-        height: 24px;
-        border: solid 2px #fff;
-        border-radius: 100%;
-        box-sizing: border-box;
-      }
-
-      &:after {
-        width: 10px;
-        height: 10px;
-        background-color: transparent;
-        content: '';
-        position: absolute;
-        left: 7px;
-        top: 7px;
-        border-radius: 100%;
-        transition: @all-transition;
-      }
-
-    }
+  .form-item__submit {
+    width: 210px;
+    margin-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  &__submit {
-    height: 60px;
-    background-image: linear-gradient(106deg, @color-linear-top, @color-linear-bot);
-    font-size: 17px;
-    line-height: 20px;
-    border: none;
-    border-radius: 100px;
-    color: @main-color;
-    width: 100%;
-    font-size: 17px;
-    letter-spacing: 0.2px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
+  fieldset {
+    margin: 0;
     padding: 0;
-    margin-top: 40px;
-    transition: @all-transition;
-
-    &:hover {
-      opacity: 0.9;
-    }
+    border: none;
+    outline: none;
+    text-align: center;
+    display: none;
   }
-}
 }
 
 
 .form-item {
+  margin-bottom: 25px;
+  width: 100%;
+  display: block;
   position: relative;
+
+  &__input {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0;
+    border: 0;
+    outline: none;
+    height: 50px;
+    border-radius: 3px;
+    background: @main-bg-col;
+    font-size: 16px;
+    line-height: 50px;
+    text-align: left;
+    color: @color-text-def;
+    box-sizing: border-box;
+    transition: @all-transition;
+    opacity: 0.8;
+
+    &.active {
+      opacity: 1;
+    }
+
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    &:focus {
+      opacity: 1;
+    }
+
+    &::-webkit-input-placeholder {opacity: 0.51; color: @color-text-def;}
+    &::-moz-placeholder          {opacity: 0.51; color: @color-text-def;}/* Firefox 19+ */
+    &:-moz-placeholder           {opacity: 0.51; color: @color-text-def;}/* Firefox 18- */
+    &:-ms-input-placeholder      {opacity: 0.51; color: @color-text-def;}
+
+  }
+
+  &__checkbox {
+    input {
+      display: none;
+
+      &:checked + label:after {
+       background-color: #fff;
+     }
+   }
+
+   label {
+    font-size: 16px;
+    text-align: left;
+    color: @main-color;
+    position: relative;
+    padding-left: 45px;
+    max-width: 268px;
+    display: block;
+    .ma;
+    box-sizing: border-box;
+    margin-top: 29px;
+    line-height: 20px;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      width: 24px;
+      height: 24px;
+      border: solid 2px #fff;
+      border-radius: 100%;
+      box-sizing: border-box;
+    }
+
+    &:after {
+      width: 10px;
+      height: 10px;
+      background-color: transparent;
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 10px;
+      border-radius: 100%;
+      transition: @all-transition;
+    }
+
+  }
+}
+
+&__submit {
+  height: 60px;
+  background-color: @main-color;
+  font-size: 17px;
+  line-height: 20px;
+  border: none;
+  border-radius: 30px;
+  color: @color-text-def;
+  width: 100%;
+  font-size: 17px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin-top: 15px;
+  transition: @all-transition;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
 }
 
 .form-item.error {
@@ -2365,13 +2343,13 @@ input::-ms-clear {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type='number'] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 
