@@ -13,14 +13,21 @@ var delivery = 1000; // стоимость доставки
 var progressivesale = 0.02; // скидка при большом кол-ве обучаемых
 var progressivmember = 10; // кол-во обучаемых для скидки
 
+
+
+var oldvalinput;
+
 $(document).ready(function () {
   if ($('.calculator__human-number').val() == '' ) {
     $('.calculator__human-number').val(1);
   }
+
+  oldvalinput = $('.calculator__human-number').val(); // первоначальное значение поля
+
   calculator();
 });
 
-  var oldvalinput = $('.calculator__human-number').val(); // первоначальное значение поля
+  
 
 // нажатие на кнопку минус
 $('.calculator__human-min').click( function () {
