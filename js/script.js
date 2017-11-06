@@ -43,7 +43,7 @@ $('.calculator__human-number').keydown(function(event) {
 });
 
 // изменение поля вручную
-$('.calculator__human-number').on('keyup input click' , function() {
+$('.calculator__human-number').on('change keyup input click' , function() {
   var $input = $(this);
   if ($input.val() == '' || $input.val() < oldvalinput) {
     $input.val(oldvalinput);
