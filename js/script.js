@@ -8,8 +8,6 @@ $(function () {
 
 var onepricemember = 2500; // стоимость одного обучения
 var consultexpert = 0; // стоимость консультации эксперта
-var priceforsale = 15000; // стоимость до бесплатной доставки
-var delivery = 1000; // стоимость доставки
 var progressivesale = 0.02; // скидка при большом кол-ве обучаемых
 var progressivmember = 10; // кол-во обучаемых для скидки
 
@@ -82,12 +80,6 @@ function calculator() {
 
 // добавляем стоимость консультации эксперта
 summ = summ + consultexpert;
-
-// если сумма уже больше опр.суммы, то доставка будет бесплатной. иначе прибавляем
-if ( summ < priceforsale ) {
-  summ = summ + delivery;
-}
-
 
 
 // выводим значение в блок с разбивкой по разрядам
