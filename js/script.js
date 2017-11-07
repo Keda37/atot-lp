@@ -23,7 +23,7 @@ $(document).ready(function () {
   calculator();
 });
 
-  
+
 
 // нажатие на кнопку минус
 $('.calculator__human-min').click( function () {
@@ -90,23 +90,115 @@ $('.calculator__human-price').text(String(summ).replace(/(\d)(?=(\d{3})+([^\d]|$
 // Конец калькулятора 
 /////////////////////////////////////////
 
+// маска в инпутах телефона
+
+$('[data-mask-tel]').mask("9 (999) 999-99-99");
+
 
 //////////////////////////////////////
 // блок с формой
 //////////////////////////////////////
 
-$('.button__next').click(function(e) {
+
+var stagetext1 = "Заявка на обучение";
+var stagetext2 = "Заявка на обучение";
+var stagetext3 = "Cпасибо";
+
+var stagetext4 = "Cпасибо!";
+
+
+$('[data-stage]').click(function(e) {
   e.preventDefault();
-  $('.discount-block__title').text('Заявка на обучение');
-  $(this).fadeOut(300);
-  $('.discount-block').addClass('discount-block--one-step');
-  $('.discount-block__stage').fadeIn(300);
-  $('.one-step').fadeIn(300);
+  var stage = $(this).attr('data-stage');
+  if ($('.discount-block__stage').is(':hidden'))  {
+   $('.discount-block__stage').fadeIn(300);
+ }
+
+ if (stage == 1) {
+   $('.discount-block__title').text(stagetext1);
+ }
+ if (stage == 2) {
+   $('.discount-block__title').text(stagetext2);
+ }
+ if (stage == 4) {
+   $('.discount-block__title').text(stagetext4);
+   $('.application-form').hide();
+   $('.discount-block__stage').fadeOut(100);
+ }
+
+
+ if (stage == 2) {
+  $('.discount-block__next-name').text($('.form-item__name').val());
+  $('.discount-block__next-phone').text($('.form-item__phone').val());
+  $('.discount-block__next-email').text($('.form-item__email').val());
+}
+
+$('[data-stage-wrapper]').attr('data-stage-wrapper', stage);
+$('[data-stage-item].active-stage').removeClass('active-stage');
+$('[data-stage-item="'+stage+'"]').addClass('active-stage');
+$('[data-fieldset]').fadeOut(100);
+$('[data-fieldset="'+stage+'"]').fadeIn(300);
+
+
+});
+
+
+// клик по кнопке физического лица 
+
+$('.discount-block__type-button--fl').click(function() {
+  if (!$(this).hasClass('active')) {
+    $('.discount-block__type-button.active').removeClass('active');
+    $(this).addClass('active');
+    $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '4');
+  }
+});
+
+// клик по кнопке юридического лица 
+$('.discount-block__type-button--yl').click(function() {
+  if (!$(this).hasClass('active')) {
+    $('.discount-block__type-button.active').removeClass('active');
+    $(this).addClass('active');
+    $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '3');
+  }
+});
+
+
+// кнопка назад 
+
+$('.discount-block__back-button').click(function () {
+  var stage = $('[data-stage-wrapper]').attr('data-stage-wrapper');
+  var stageold = stage - 1;
+  if (stageold == 1) {
+   $('.discount-block__title').text(stagetext1);
+ }
+ if (stageold == 2) {
+   $('.discount-block__title').text(stagetext2);
+ }
+ $('[data-stage-wrapper]').attr('data-stage-wrapper', stageold);
+ $('[data-stage-item].active-stage').removeClass('active-stage');
+ $('[data-stage-item="'+stageold+'"]').addClass('active-stage');
+ $('[data-fieldset]').fadeOut(100);
+ $('[data-fieldset="'+stageold+'"]').fadeIn(300);
+
 });
 
 
 
+// скролл сразу ко второму шагу с кнопки калькулятора 
+$('.form-data-stage').click(function (e) {
+ e.preventDefault();
 
+$('.form-item__name').val($('.form-item__name-calc').val());
+$('.form-item__phone').val($('.form-item__name-phone').val());
+$('.form-item__email').val($('.form-item__name-email').val());
+
+ $('.discount-block__next-name').text($('.form-item__name').val());
+ $('.discount-block__next-phone').text($('.form-item__phone').val());
+ $('.discount-block__next-email').text($('.form-item__email').val());
+
+
+ $('html,body').animate({scrollTop:$('.discount-block').offset().top+"px"},{duration:1E3});
+});
 
 
 ///////////////////////////////////////////////
@@ -145,12 +237,20 @@ $('.form-item__input').focusout(function() {
   }
 });
 
-$('.form-item__submit').click(function(e) {
+$('.modal__button').click(function(e) {
   e.preventDefault();
   $('.modal').addClass('active');
   setTimeout(function () {
     $('.modal').addClass('in');
   }, 100)
+});
+
+// отправка формы, поправить ТУТ 
+$('.form__sumbit').click(function(e) {
+  e.preventDefault();
+  $('.modal form').hide();
+  $('.modal__title').html("Cпасибо,<br>Ваша заявка принята");
+  $('.form-item__submit.modal-close').show();
 });
 
 $('.modal-close').click(function() {
