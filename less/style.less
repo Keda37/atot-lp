@@ -1444,6 +1444,9 @@ body {
       display: none;
     }
     background-image: linear-gradient(305deg, #57ca85, #194f68);
+  .discount-block__back-button {
+      display: block;
+    }
   }
 
   &[data-stage-wrapper="4"] {
@@ -1639,6 +1642,11 @@ body {
   padding-left: 20px;
   box-sizing: border-box;
   cursor: pointer;
+  transition: color .3s;
+
+  &:hover {
+    color: #fff;
+  }
 
   &:before {
     content: '';
@@ -1774,12 +1782,22 @@ body {
     text-align: center;
     color: #ffffff;
     transition: opacity .3s;
+          overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
 
-    &:hover {
+    &:hover,
+    &.full {
       opacity: 1;
     }
     &-input {
       display: none;
+    }
+    &-text {
+
     }
   }
   &-text {
@@ -1814,6 +1832,7 @@ body {
    text-align: right;
    color: #ffffff;
    margin-right: 40px;
+   cursor: pointer;
  }
  &-input {
   max-width: 380px;

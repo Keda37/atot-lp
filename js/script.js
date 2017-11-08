@@ -92,7 +92,7 @@ $('.calculator__human-price').text(String(summ).replace(/(\d)(?=(\d{3})+([^\d]|$
 
 // маска в инпутах телефона
 
-$('[data-mask-tel]').mask("9 (999) 999-99-99");
+$('[data-mask-tel]').mask("8 (999) 999-99-99");
 
 
 //////////////////////////////////////
@@ -191,6 +191,24 @@ $('[data-ul-type]').click(function() {
     $('[data-ul-wrapper]').hide();
 
     $('[data-ul-wrapper="'+ultype+'"]').fadeIn(300);
+
+    if (ultype == 'traditional') {
+      $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '4').val('Отправить');
+    } else {
+      $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '3').val('Далее');
+    }
+  }
+});
+
+// проверка на инпут с файлом
+
+$('.discount-block__ul-traditional-upload-input').change(function() {
+  if ($(this).val() != '') {
+    $('.discount-block__ul-traditional-upload').addClass('full');
+    $('.discount-block__ul-traditional-upload-text').text(document.getElementById('upload').files[0].name);
+  } else {
+    $('.discount-block__ul-traditional-upload').removeClass('full');
+    $('.discount-block__ul-traditional-upload-text').text('Загрузить заполненный бланк');
   }
 });
 
@@ -202,10 +220,20 @@ $('.discount-block__back-button').click(function () {
   var stage = $('[data-stage-wrapper]').attr('data-stage-wrapper');
   var stageold = stage - 1;
   if (stageold == 1) {
-   $('.discount-block__title').text(stagetext1);
- }
- if (stageold == 2) {
-   $('.discount-block__title').text(stagetext2);
+    $('.discount-block__title').text(stagetext1);
+    if ($('.discount-block__ul-type').is(":visible")) {
+
+      stageold = stage;
+      $('.discount-block__type-button.active').removeClass('active');
+      $('[data-ul-type].active').removeClass('active');
+      $('.discount-block__ul-type').hide();
+      $('.discount-block__ul-wrapper').hide();
+      $('.discount-block__type').fadeIn(300);
+      $('.discount-block__next').fadeIn(300);
+    }
+  }
+  if (stageold == 2) {
+   $('.discount-block__title').text(stagetextul);
  }
  $('[data-stage-wrapper]').attr('data-stage-wrapper', stageold);
  $('[data-stage-item].active-stage').removeClass('active-stage');
@@ -248,6 +276,20 @@ $('html').on('click','.form-item__remove', function () {
 });
 
 
+$('html').on('change focusin','.form-item__input', function () {         
+  $(this).addClass('active');
+});
+
+$('html').on('change focusout','.form-item__input', function () {         
+    var field = $(this).val();
+    var fieldtrim = $.trim(field);
+    if (fieldtrim == '') {
+      $(this).removeClass('active');
+      $(this).val("");
+    }
+  });
+
+
 ///////////////////////////////////////////////
 //  Окончание блока с формой
 /////////////////////////////////////////////
@@ -271,18 +313,7 @@ $('.header__menu-link').click(function () {
   }
 });
 
-$('.form-item__input').click( function() {
-  $(this).addClass('active');
-});
 
-$('.form-item__input').focusout(function() {
-  var field = $(this).val();
-  var fieldtrim = $.trim(field);
-  if (fieldtrim == '') {
-    $(this).removeClass('active');
-    $(this).val("");
-  }
-});
 
 $('.modal__button').click(function(e) {
   e.preventDefault();

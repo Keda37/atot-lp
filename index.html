@@ -6,6 +6,7 @@
   <title>Tehnoprogress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
+  <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@17.10.0/dist/css/suggestions.min.css" type="text/css" rel="stylesheet" />
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -191,13 +192,13 @@
             <div class="calculator__form-wrapper">
               <form class="calculator__form">
                 <div class="form-item">
-                  <input type="text" class="form-item__input form-item__name-calc" placeholder="Ваше имя"/>
+                  <input type="text" class="form-item__input form-item__name-calc" placeholder="Ваше имя" id="fullname"/>
                 </div>
                 <div class="form-item">
                   <input type="text" class="form-item__input form-item__name-phone" placeholder="Телефон" data-mask-tel />
                 </div>
                 <div class="form-item">
-                  <input type="text" class="form-item__input form-item__name-email" placeholder="E-mail"/>
+                  <input type="email" class="form-item__input form-item__name-email" placeholder="E-mail"/>
                 </div>
                 <div class="form-item">
                   <div class="form-item__checkbox">
@@ -299,7 +300,7 @@
                   <input type="text" class="form-item__input form-item__phone" placeholder="Телефон" data-mask-tel/>
                 </div>
                 <div class="form-item">
-                  <input type="text" class="form-item__input form-item__email" placeholder="E-mail"/>
+                  <input type="email" class="form-item__input form-item__email" placeholder="E-mail"/>
                 </div>
                 <div class="form-item">
                   <div class="form-item__checkbox">
@@ -340,44 +341,44 @@
                 <div class="discount-block__ul-wrapper">
                   <div class="discount-block__ul-remote" data-ul-wrapper="remote">
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">ИНН:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="inn" class="discount-block__ul-remote-label">ИНН:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="inn">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">КПП:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="kpp" class="discount-block__ul-remote-label">КПП:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="kpp">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">Наименование организации:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="name-org" class="discount-block__ul-remote-label">Наименование организации:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="name-org">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">Профиль деятельности:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="profile" class="discount-block__ul-remote-label">Профиль деятельности:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="profile">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">Юридический  адрес:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="legal-adress" class="discount-block__ul-remote-label">Юридический  адрес:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="legal-adress">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">Фактический  адрес:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="actual-adres" class="discount-block__ul-remote-label">Фактический  адрес:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="actual-adres">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">Расчетный счет:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="checking-acc" class="discount-block__ul-remote-label">Расчетный счет:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="checking-acc">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">В банке:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="bank" class="discount-block__ul-remote-label">В банке:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="bank">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">БИК:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="bik" class="discount-block__ul-remote-label">БИК:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="bik">
                     </div>
                     <div class="discount-block__ul-remote-item">
-                      <label for="" class="discount-block__ul-remote-label">Корр. счет:</label>
-                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                      <label for="correspondent-acc" class="discount-block__ul-remote-label">Корр. счет:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input" id="correspondent-acc">
                     </div>
                     <div class="discount-block__ul-remote-item">
                       <div class="form-item__checkbox">
@@ -405,14 +406,14 @@
                 <div class="discount-block__member-title">Список сотрудников на обучение и аттестацию:</div>
                 <ol class="discount-block__member-wrapper">
                   <li class="discount-block__member-item">
-                      <input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/>
-                      <input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/>
-                      <div href="#" class="form-item__remove">X</div>
+                    <input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/>
+                    <input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/>
+                    <div href="#" class="form-item__remove">X</div>
                   </li>
                   <li class="discount-block__member-item">
-                      <input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/>
-                      <input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/>
-                      <div href="#" class="form-item__remove">X</div>
+                    <input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/>
+                    <input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/>
+                    <div href="#" class="form-item__remove">X</div>
                   </li>
                 </ol>
                 <div class="discount-block__member-add">Добавить сотрудника</div>
@@ -597,7 +598,7 @@
           <input type="text" class="form-item__input" placeholder="Телефон" data-mask-tel/>
         </div>
         <div class="form-item">
-          <input type="text" class="form-item__input" placeholder="E-mail"/>
+          <input type="email" class="form-item__input" placeholder="E-mail"/>
         </div>
         <div class="form-item">
           <div class="form-item__checkbox">
@@ -617,6 +618,61 @@
   <script>window.jQuery || document.write('<script src="js/jquery-1.12.4.min.js">\x3C/script>')</script>
   <script src="js/slick.min.js"></script>
   <script src="js/jquery.maskedinput.min.js"></script>
-  <script src="js/script.js"></script>
+<!--[if lt IE 10]>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/suggestions-jquery@17.10.0/dist/js/jquery.suggestions.min.js"></script>
+<script type="text/javascript">
+  $("#inn").change(function(e) {
+    var promise = suggest(e.target.value);
+    promise
+    .done(function(response) {
+      showParty(response.suggestions)
+      console.log(response);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.log(textStatus);
+      console.log(errorThrown);
+    });
+  });
+
+  function suggest(query) {
+    var serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party",
+    token = "a1625ca1d062aa90f768acb14fe198cbe916527c";
+    var request = {
+      "query": query
+    };
+    var params = {
+      type: "POST",
+      contentType: "application/json",
+      headers: {
+        "Authorization": "Token " + token
+      },
+      data: JSON.stringify(request)
+    }
+
+    return $.ajax(serviceUrl, params);
+  }
+
+  function clearParty() {
+    $("#name-org").val("");
+    $("#kpp").val("");
+    $("#legal-adress").val("");
+  }
+
+  function showParty(suggestions) {
+    clearParty();
+    if (suggestions.length === 0) return;
+    var party = suggestions[0].data;
+    // $("#name_short").val(party.name.short_with_opf);
+
+    $("#kpp").val(party.kpp);
+    $("#name-org").val(party.name.full_with_opf);
+    $("#legal-adress").val(party.address.value);
+
+    // $("#inn").val(party.inn);
+  }
+</script>
+<script src="js/script.js"></script>
 </body>
 </html>
