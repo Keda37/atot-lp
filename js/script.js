@@ -102,13 +102,19 @@ $('[data-mask-tel]').mask("9 (999) 999-99-99");
 
 var stagetext1 = "Заявка на обучение";
 var stagetext2 = "Заявка на обучение";
-var stagetext3 = "Cпасибо";
+var stagetext3 = "Список сотрудников";
 
 var stagetext4 = "Cпасибо!";
+
+var stagetextul = "Реквизиты компании"
 
 
 $('[data-stage]').click(function(e) {
   e.preventDefault();
+
+  $('html,body').animate({scrollTop:$('.discount-block').offset().top+"px"},{duration:150});
+
+
   var stage = $(this).attr('data-stage');
   if ($('.discount-block__stage').is(':hidden'))  {
    $('.discount-block__stage').fadeIn(300);
@@ -119,6 +125,9 @@ $('[data-stage]').click(function(e) {
  }
  if (stage == 2) {
    $('.discount-block__title').text(stagetext2);
+ }
+ if (stage == 3) {
+   $('.discount-block__title').text(stagetext3);
  }
  if (stage == 4) {
    $('.discount-block__title').text(stagetext4);
@@ -149,7 +158,7 @@ $('.discount-block__type-button--fl').click(function() {
   if (!$(this).hasClass('active')) {
     $('.discount-block__type-button.active').removeClass('active');
     $(this).addClass('active');
-    $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '4');
+    $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '4').val('Отправить');
   }
 });
 
@@ -158,9 +167,32 @@ $('.discount-block__type-button--yl').click(function() {
   if (!$(this).hasClass('active')) {
     $('.discount-block__type-button.active').removeClass('active');
     $(this).addClass('active');
-    $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '3');
+    $('.discount-block__type').hide();
+    $('.discount-block__next').hide();
+    $('.discount-block__ul-type').fadeIn(300);
+    $('.discount-block__title').text(stagetextul);
+    $('[data-fieldset="2"] .form-item__submit').attr('data-stage', '3').val('Далее');
   }
 });
+
+
+// клик по выбору способа подачи заявления
+
+$('[data-ul-type]').click(function() {
+  if (!$(this).hasClass('active')) {
+    var ultype = $(this).attr('data-ul-type');
+
+    $('[data-ul-type]').removeClass('active');
+    $(this).addClass('active');
+    if ($('.discount-block__ul-wrapper').is(':hidden')) {
+      $('.discount-block__ul-wrapper').fadeIn(300);
+    }
+    $('[data-ul-wrapper]').hide();
+
+    $('[data-ul-wrapper="'+ultype+'"]').fadeIn(300);
+  }
+});
+
 
 
 // кнопка назад 
@@ -188,9 +220,9 @@ $('.discount-block__back-button').click(function () {
 $('.form-data-stage').click(function (e) {
  e.preventDefault();
 
-$('.form-item__name').val($('.form-item__name-calc').val());
-$('.form-item__phone').val($('.form-item__name-phone').val());
-$('.form-item__email').val($('.form-item__name-email').val());
+ $('.form-item__name').val($('.form-item__name-calc').val());
+ $('.form-item__phone').val($('.form-item__name-phone').val());
+ $('.form-item__email').val($('.form-item__name-email').val());
 
  $('.discount-block__next-name').text($('.form-item__name').val());
  $('.discount-block__next-phone').text($('.form-item__phone').val());

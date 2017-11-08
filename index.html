@@ -291,42 +291,118 @@
           </ul>
           <form class="application-form" method="POST" >
             <fieldset data-fieldset="1">
-              <div class="form-item">
-                <input type="text" class="form-item__input form-item__name" placeholder="ФИО"/>
-              </div>
-              <div class="form-item">
-                <input type="text" class="form-item__input form-item__phone" placeholder="Телефон" data-mask-tel/>
-              </div>
-              <div class="form-item">
-                <input type="text" class="form-item__input form-item__email" placeholder="E-mail"/>
-              </div>
-              <div class="form-item">
-                <div class="form-item__checkbox">
-                  <input type="checkbox" id="agreement-сheck-two" checked>
-                  <label for="agreement-сheck-two">Я даю согласие на обработку моих персональных данных</label>
+              <div class="application-form-wrapper application-form-wrapper--small">
+                <div class="form-item">
+                  <input type="text" class="form-item__input form-item__name" placeholder="ФИО"/>
                 </div>
+                <div class="form-item">
+                  <input type="text" class="form-item__input form-item__phone" placeholder="Телефон" data-mask-tel/>
+                </div>
+                <div class="form-item">
+                  <input type="text" class="form-item__input form-item__email" placeholder="E-mail"/>
+                </div>
+                <div class="form-item">
+                  <div class="form-item__checkbox">
+                    <input type="checkbox" id="agreement-сheck-two" checked>
+                    <label for="agreement-сheck-two">Я даю согласие на обработку моих персональных данных</label>
+                  </div>
+                </div>
+                <input type="submit" value="Далее" class="form-item__submit" data-stage="2">
               </div>
-              <input type="submit" value="Далее" class="form-item__submit" data-stage="2">
             </fieldset>
             <fieldset data-fieldset="2">
-              <div class="discount-block__type">
-                <div class="discount-block__type-title">Пожалуйста выберите тип заявки:</div>
-                <div class="discount-block__type-wrapper">
-                  <div class="discount-block__type-button discount-block__type-button--fl">Для физ. лица</div>
-                  <div class="discount-block__type-button discount-block__type-button--yl">Для юр. лица</div>
+              <div class="application-form-wrapper">
+                <div class="discount-block__type">
+                  <div class="discount-block__type-title">Пожалуйста выберите тип заявки:</div>
+                  <div class="discount-block__type-wrapper">
+                    <div class="discount-block__type-button discount-block__type-button--fl">Для физ. лица</div>
+                    <div class="discount-block__type-button discount-block__type-button--yl">Для юр. лица</div>
+                  </div>
                 </div>
-              </div>
-              <div class="discount-block__next">
-                <div class="discount-block__next-name"></div>
-                <div class="discount-block__next-phone-wrapper">Тел.: <span class="discount-block__next-phone"></span></div>
-                <div class="discount-block__next-email"></div>
-              </div>
+                <div class="discount-block__next">
+                  <div class="discount-block__next-name"></div>
+                  <div class="discount-block__next-phone-wrapper">Тел.: <span class="discount-block__next-phone"></span></div>
+                  <div class="discount-block__next-email"></div>
+                </div>
+                <div class="discount-block__ul-type">
+                  <div class="discount-block__ul-type-block-title">Вы можете выбрать каким способом подать заявление:</div>
+                  <div class="discount-block__ul-type-wrapper">
+                    <div class="discount-block__ul-type-item" data-ul-type="remote">
+                      <div class="discount-block__ul-type-title">Дистанционно</div>
+                      <div class="discount-block__ul-type-text">Заполнить заявку на сайте<br>и получить дополнительную скидку 10%</div>
+                    </div>
+                    <div class="discount-block__ul-type-item" data-ul-type="traditional">
+                      <div class="discount-block__ul-type-title">Традиционно</div>
+                      <div class="discount-block__ul-type-text">Скачать чистый бланк заявки и заполнить его от руки, скидки не будет</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="discount-block__ul-wrapper">
+                  <div class="discount-block__ul-remote" data-ul-wrapper="remote">
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">ИНН:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">КПП:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">Наименование организации:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">Профиль деятельности:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">Юридический  адрес:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">Фактический  адрес:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">Расчетный счет:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">В банке:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">БИК:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <label for="" class="discount-block__ul-remote-label">Корр. счет:</label>
+                      <input type="text" class="discount-block__ul-remote-input form-item__input">
+                    </div>
+                    <div class="discount-block__ul-remote-item">
+                      <div class="form-item__checkbox">
+                      <input type="checkbox" id="agreement-сheck-four" checked>
+                        <label for="agreement-сheck-four">Я даю согласие на обработку моих персональных данных</label>
+                      </div>
+                    </div>
 
-              <input type="submit" value="Отправить" class="form-item__submit" data-stage="3">
+                  </div>
+                  <div class="discount-block__ul-traditional" data-ul-wrapper="traditional">
+                    <div class="discount-block__ul-traditional-title">Вы можете скачать чистый бланк заявки и заполнить его от руки</div>
+                    <a href="files/Заявка на обучение.doc" class="discount-block__ul-traditional-download">Скачать чистый бланк</a>
+                    <label for="upload" class="discount-block__ul-traditional-upload">
+                      <input type="file" class="discount-block__ul-traditional-upload-input" id="upload">
+                      <span class="discount-block__ul-traditional-upload-text">Загрузить заполненный бланк</span>
+                    </label>
+                    <div class="discount-block__ul-traditional-text">Форматы для загрузки jpeg, pdf, word.</div>
+                  </div>
+                </div>
+                <input type="submit" value="Далее" class="form-item__submit" data-stage="3">
+              </div>
             </fieldset>
           </form>
           <a class="discount-block__button" data-stage="1">Получить скидку 10%</a>
-          <div class="discount-block__final" data-fieldset="3">
+          <div class="discount-block__final" data-fieldset="4">
             <div class="discount-block__final-text">Ваша дополнительная скидка 10% активирована.<br>Заявка принята в обработку и в течении часа вам перезвонит наш менеджер
               для подтверждения заказа!</div>
             </div>
