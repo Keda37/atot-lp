@@ -147,9 +147,10 @@ $('[data-stage-item].active-stage').removeClass('active-stage');
 $('[data-stage-item="'+stage+'"]').addClass('active-stage');
 $('[data-fieldset]').fadeOut(100);
 $('[data-fieldset="'+stage+'"]').fadeIn(300);
-
-
 });
+
+
+
 
 
 // клик по кнопке физического лица 
@@ -230,6 +231,20 @@ $('.form-data-stage').click(function (e) {
 
 
  $('html,body').animate({scrollTop:$('.discount-block').offset().top+"px"},{duration:1E3});
+});
+
+
+
+// Кнопка добавления сотрудника 
+
+$('.discount-block__member-add').click(function() {
+  $('.discount-block__member-wrapper').append('<li class="discount-block__member-item"><input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/><input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/><div href="#" class="form-item__remove">X</div></li>')
+});
+
+// удаление сотрудника 
+
+$('html').on('click','.form-item__remove', function () {         
+  $(this).parent('.discount-block__member-item').remove();
 });
 
 
