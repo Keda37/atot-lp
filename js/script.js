@@ -68,6 +68,7 @@ var onepricemember = 2500; // стоимость одного обучения
 var consultexpert = 0; // стоимость консультации эксперта
 var progressivesale = 0.02; // скидка при большом кол-ве обучаемых
 var progressivmember = 10; // кол-во обучаемых для скидки
+var discountform = 0.10; // скидка при заполнении формы на сайте
 
 var oldvalinput;
 
@@ -79,6 +80,8 @@ $(document).ready(function () {
   oldvalinput = $('.calculator__human-number').val(); // первоначальное значение поля
 
   calculator();
+
+   calculatorForm();
 });
 
 
@@ -142,6 +145,34 @@ summ = summ + consultexpert;
 
 // выводим значение в блок с разбивкой по разрядам
 $('.calculator__human-price').text(String(summ).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 '));
+}
+
+
+// калькулятор на последнем экране формы 
+
+function calculatorForm() {
+  var member = $('.discount-block__member-wrapper li').length; // берем значение кол-ва от кол-ва сотрудников
+  var summ;
+
+    // если не хватает народа до скидки то просто умножаем
+    if (progressivmember >= member) {
+      summ = member*onepricemember;
+    } else {
+      // если хватает, то считаем со скидкой
+      var memberminus = member - progressivmember;
+      var sale = onepricemember - (onepricemember*progressivesale);
+      summ = progressivmember*onepricemember + sale*memberminus;
+    }
+
+// добавляем стоимость консультации эксперта
+summ = summ + consultexpert;
+
+// добавляем скидку при заполнении на сайте
+
+summ = summ - (summ * discountform); 
+
+// выводим значение в блок с разбивкой по разрядам
+$('.discount-block__member-calc-number').text(String(summ).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 '));
 }
 
 //////////////////////////////////////////
@@ -380,7 +411,7 @@ $('.form-data-stage').click(function (e) {
    var countmember = $('.calculator__human-number').val();
    $('.discount-block__member-wrapper').empty(); // удаляем все
    $('.discount-block__member-wrapper').append(addMember(countmember)); // вставляем нужное кол-во
-
+   calculatorForm(); 
 
  }
 });
@@ -406,12 +437,14 @@ $(".discount-block__member-wrapper input[type='text']").each(function() {
 
 $('.discount-block__member-add').click(function() {
   addMember(1); // добавляем одного сотрудника, можно поменять
+  calculatorForm(); // меняем стоимость
 });
 
 
 // удаление сотрудника 
 $('html').on('click','.form-item__remove', function () {         
   $(this).parent('.discount-block__member-item').remove();
+  calculatorForm(); 
 });
 
 // Анимация инпутов, сделана чуть сложнее, т.к. часть инпутов стала динамической
