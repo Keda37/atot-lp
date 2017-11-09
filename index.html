@@ -192,7 +192,7 @@
             <div class="calculator__form-wrapper">
               <form class="calculator__form">
                 <div class="form-item">
-                  <input type="text" class="form-item__input form-item__name-calc" placeholder="Ваше имя" id="fullname" required/>
+                  <input type="text" class="form-item__input form-item__name-calc" placeholder="Ваше имя fullname" required/>
                 </div>
                 <div class="form-item">
                   <input type="text" class="form-item__input form-item__name-phone" placeholder="Телефон" required data-mask-tel />
@@ -295,7 +295,7 @@
             <fieldset data-fieldset="1">
               <div class="application-form-wrapper application-form-wrapper--small">
                 <div class="form-item">
-                  <input type="text" class="form-item__input form-item__name" placeholder="ФИО" required />
+                  <input type="text" class="form-item__input form-item__name fullname" placeholder="ФИО" required />
                 </div>
                 <div class="form-item">
                   <input type="text" class="form-item__input form-item__phone" placeholder="Телефон" required  data-mask-tel/>
@@ -390,7 +390,7 @@
                     </div>
 
                   </div>
-                  <div class="discount-block__ul-traditional" data-ul-wrapper="traditional">
+                  <div class="discount-block__ul-traditional" data-ul-wrapper="traditional" style="display: none">
                     <div class="discount-block__ul-traditional-title">Вы можете скачать чистый бланк заявки и заполнить его от руки</div>
                     <a href="files/Заявка на обучение.doc" class="discount-block__ul-traditional-download">Скачать чистый бланк</a>
                     <label for="upload" class="discount-block__ul-traditional-upload">
@@ -406,19 +406,20 @@
             <fieldset data-fieldset="3">
               <div class="application-form-wrapper discount-block__member">
                 <div class="discount-block__member-title">Список сотрудников на обучение и аттестацию:</div>
+                <div class="discount-block__member-prompt">ФИО сотрудников будут указаны в удостоверениях</div>
                 <ol class="discount-block__member-wrapper">
                   <li class="discount-block__member-item">
-                    <input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/>
+                    <input type="text" class="form-item__input form-item__member-name fullname" placeholder="ФИО"/>
                     <input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/>
                     <div href="#" class="form-item__remove">X</div>
                   </li>
                   <li class="discount-block__member-item">
-                    <input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/>
+                    <input type="text" class="form-item__input form-item__member-name fullname" placeholder="ФИО"/>
                     <input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/>
                     <div href="#" class="form-item__remove">X</div>
                   </li>
                   <li class="discount-block__member-item">
-                    <input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/>
+                    <input type="text" class="form-item__input form-item__member-name fullname" placeholder="ФИО"/>
                     <input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/>
                     <div href="#" class="form-item__remove">X</div>
                   </li>
@@ -600,7 +601,7 @@
       <h3 class="modal__title">Оставить заявку</h3>
       <form class="modal__form">
         <div class="form-item">
-          <input type="text" class="form-item__input name-input" placeholder="Ваше имя" required/>
+          <input type="text" class="form-item__input name-input fullname" placeholder="Ваше имя" required/>
         </div>
         <div class="form-item">
           <input type="text" class="form-item__input phone-input" placeholder="Телефон" required data-mask-tel/>

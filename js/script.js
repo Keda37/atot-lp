@@ -390,7 +390,15 @@ function addMember(countmember) {
   // цикл сделан для возможности смены кол-ва добавления за один раз
 
  for (var i = 0; i < countmember; i++) {
-  $('.discount-block__member-wrapper').append('<li class="discount-block__member-item"><input type="text" class="form-item__input form-item__member-name" placeholder="ФИО"/><input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/><div href="#" class="form-item__remove">X</div></li>');
+  $('.discount-block__member-wrapper').append('<li class="discount-block__member-item"><input type="text" class="form-item__input form-item__member-name fullname" placeholder="ФИО"/><input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/><div href="#" class="form-item__remove">X</div></li>');
+
+$(".discount-block__member-wrapper input[type='text']").each(function() {
+  $(this).suggestions = $("body").suggestions;
+    $(this).suggestions({
+      token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
+        type: "NAME",
+        count: 5
+});});
 }
 }
 
@@ -430,6 +438,15 @@ $('html').on('change focusout','.form-item__input', function () {
 /////////////////////////////////////////////////
 
 // обязательно сменить ключ АПИ на свой иначе не будет работать
+
+
+
+// подключение фио к блокам с фио
+ $(".fullname").suggestions({
+        token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
+        type: "NAME",
+        count: 5
+    });
 
 
 $("#inn").change(function(e) {
