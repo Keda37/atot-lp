@@ -1444,7 +1444,7 @@ body {
       display: none;
     }
     background-image: linear-gradient(305deg, #57ca85, #194f68);
-  .discount-block__back-button {
+    .discount-block__back-button {
       display: block;
     }
   }
@@ -1672,6 +1672,10 @@ body {
   color: #ffffff;
   margin-top: 10px;
   display: none;
+
+  &-text-discount {
+        display: none;
+      }
 }
 
 &__ul-type {
@@ -1782,7 +1786,7 @@ body {
     text-align: center;
     color: #ffffff;
     transition: opacity .3s;
-          overflow: hidden;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
@@ -1920,6 +1924,11 @@ body {
       margin-left: 10px;
       display: inline-block;
       cursor: pointer;
+      transition: opacity .3s;
+
+      &:hover {
+        opacity: .5;
+      }
     }
   }
 }
@@ -2674,36 +2683,44 @@ body {
 }
 }
 
-.form-item.error {
+.form-item.has-error {
 
- &:after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  display: block;
-  top: 12px;
-  right: 15px;
-  background: url(../image/ic-error-outline-24-px.svg) center no-repeat;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 5px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: #b20933;
+    z-index: 2; 
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    display: block;
+    top: 12px;
+    right: 10px;
+    background: url(../image/ic-error-outline-24-px.svg) center no-repeat;
+  }
+
 }
-}
+
 .form-item-error {
   font-size: 16px;
   line-height: 16px;
   text-align: left;
-  color:#b20933;
+  color: #b20933;
   margin-top: 9px;
   margin-left: 21px;
   display: none;
 }
-.form-item.error .form-item-error {
-  display: block;
-}
-.form-item.error .form-item__input:focus {
-  border: solid 1px #b20933;
-  box-sizing: border-box;
-  line-height: 48px;
-}
+
 
 input::-ms-clear {
  display: none;
