@@ -600,6 +600,7 @@ $('.header__menu-link').click(function () {
 $('.modal__button').click(function(e) {
   e.preventDefault();
   $('.modal').addClass('active');
+  $('[data-modal="one"]').show();
   setTimeout(function () {
     $('.modal').addClass('in');
   }, 100)
@@ -617,12 +618,34 @@ $('.form__sumbit').click(function(e) {
   }
 });
 
+// Модальное окно через 40 секунд после нахождения на сайте с куками в 7 дней
+
+setTimeout(function(){
+  if ($.cookie('modalCookie')) {
+} else {
+$('.modal').addClass('active');
+  $('[data-modal="cookie"]').show();
+  setTimeout(function () {
+    $('.modal').addClass('in');
+  }, 100);
+  $.cookie('modalCookie', 1, { expires: 7});
+}
+}, 40000);
+
+
+
+// Закрытие модального окна
+
 $('.modal-close').click(function() {
+  var thisWrapper = $(this).parent('.modal__wrapper');
   $('.modal').removeClass('in');
   setTimeout(function () {
     $('.modal').removeClass('active');
+    $(thisWrapper).hide();
   }, 250)
 });
+
+
 
 $('.header__menu-button').click(function() {
   $('.header__row-top').toggleClass('active-header');

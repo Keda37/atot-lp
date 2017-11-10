@@ -192,7 +192,7 @@
             <div class="calculator__form-wrapper">
               <form class="calculator__form">
                 <div class="form-item">
-                  <input type="text" class="form-item__input form-item__name-calc fullname" placeholder="Ваше имя" required/>
+                  <input type="text" class="form-item__input form-item__name-calc fullname" placeholder="ФИО" required/>
                 </div>
                 <div class="form-item">
                   <input type="text" class="form-item__input form-item__name-phone" placeholder="Телефон" required data-mask-tel />
@@ -600,12 +600,36 @@
     </div>
   </footer>
   <div class="modal fade">
-    <div class="modal__wrapper">
+    <div class="modal__wrapper" data-modal="one">
       <div class="modal__wrapper-close modal-close">+</div>
       <h3 class="modal__title">Оставить заявку</h3>
       <form class="modal__form">
         <div class="form-item">
-          <input type="text" class="form-item__input name-input fullname" placeholder="Ваше имя" required/>
+          <input type="text" class="form-item__input name-input fullname" placeholder="ФИО" required/>
+        </div>
+        <div class="form-item">
+          <input type="text" class="form-item__input phone-input" placeholder="Телефон" required data-mask-tel/>
+        </div>
+        <div class="form-item">
+          <input type="text" class="form-item__input mail-input" placeholder="E-mail" required/>
+        </div>
+        <div class="form-item">
+          <div class="form-item__checkbox">
+            <input type="checkbox" id="agreement-сheck-three" class="agreement-check" checked>
+            <label for="agreement-сheck-three">Я даю согласие на обработку моих персональных данных</label>
+            <div class="form-item-error agreement-check-error">Необходимо дать согласие на обработку данных</div>
+          </div>
+        </div>
+        <input type="submit" value="Отправить" class="form-item__submit form__sumbit"/>
+      </form>
+      <input type="submit" value="Вернуться на главную" class="form-item__submit modal-close"/>
+    </div>
+    <div class="modal__wrapper" data-modal="cookie">
+      <div class="modal__wrapper-close modal-close">+</div>
+      <h3 class="modal__title">Получить бесплатный первый урок</h3>
+      <form class="modal__form">
+        <div class="form-item">
+          <input type="text" class="form-item__input name-input fullname" placeholder="ФИО" required/>
         </div>
         <div class="form-item">
           <input type="text" class="form-item__input phone-input" placeholder="Телефон" required data-mask-tel/>
@@ -636,6 +660,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/suggestions-jquery@17.10.0/dist/js/jquery.suggestions.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
