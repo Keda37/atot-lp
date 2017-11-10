@@ -1,53 +1,58 @@
 
-
 function validateEmail(email) {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
 
 function checkSubmitButton(formInput) {
-  var $form = formInput;
-  
 
-  is_agreed = $form.find('.agreement-check').is(':checked'),
-  email = $form.find('.mail-input').val(),
-  agreeCheck = $('.agreement-check', $form),
-  agreeError = $('.agreement-check-error', $form);
-  var errorInput = 0;
-
-  $('.form-item__input[required]', $form).each(function() {
-    var valueInput = $(this).val();
-    var parentInput = $(this).parent();
+  if (formInput != 1) {
+    var $form = formInput;
 
 
-    if (!valueInput) {
-      parentInput.addClass('has-error');
-      errorInput = errorInput + 1;
-    } else {
-      parentInput.removeClass('has-error'); 
+    email = $form.find('.mail-input').val(),
+    agreeCheck = $('.agreement-check', $form),
+    agreeError = $('.agreement-check-error', $form);
+    var errorInput = 0;
 
-      if ($(this).hasClass('mail-input')) {
-        if(validateEmail(email)) {
-          parentInput.removeClass('has-error'); 
-        } else {
-         parentInput.addClass('has-error');
+    $('.form-item__input[required]', $form).each(function() {
+      var valueInput = $(this).val();
+      var parentInput = $(this).parent();
+
+
+      if (!valueInput) {
+        parentInput.addClass('has-error');
+        errorInput = errorInput + 1;
+      } else {
+        parentInput.removeClass('has-error'); 
+
+        if ($(this).hasClass('mail-input')) {
+          if(validateEmail(email)) {
+            parentInput.removeClass('has-error'); 
+          } else {
+           parentInput.addClass('has-error');
+         }
        }
      }
-   }
-   return errorInput;
- })
+     return errorInput;
+   })
+    if (agreeCheck.length > 0) {
+      if(!agreeCheck.prop('checked')) {
+        agreeError.css('display', 'block');
+        errorInput = errorInput + 1; 
+      } else {
+        agreeError.css('display', 'none');
+      }
+    }
 
-  if(!agreeCheck.prop('checked')) {
-    agreeError.css('display', 'block');
+    if(errorInput == 0)  {
+      return true;
+    } else {
+      return false;
+    }
   } else {
-    agreeError.css('display', 'none');
-  }
-
-  if(is_agreed && errorInput == 0) {
-    return true;
-  } else {
-    return false;
-  }
+   return true;
+ }
 }
 
 
@@ -81,7 +86,7 @@ $(document).ready(function () {
 
   calculator();
 
-   calculatorForm();
+  calculatorForm();
 });
 
 
@@ -200,40 +205,67 @@ var stagetextul = "Реквизиты компании"
 
 
 
-// кнопка получить скидку 10% 
-
-$('.discount-block__button').click(function(e) {
-
-   $('[data-stage-wrapper]').attr('data-stage-wrapper', '1'); // переключаем шаг у обертки для визуального оформления
-  $('[data-stage-item="1"]').addClass('active-stage'); // делаем активным первый шаг
-  $(this).fadeOut(100); // скрываем кнопку
-
- // показываем первое окно
- $('[data-fieldset="1"]').fadeIn(300); 
-
-  // меняем значение заголовка
-  $('.discount-block__title').text(stagetext1);
-
-// показываем строку с цифрами
-if ($('.discount-block__stage').is(':hidden'))  {
- $('.discount-block__stage').fadeIn(300);
-}
-});
-
 
 $('[data-stage]').click(function(e) {
   e.preventDefault();
+  // получаем значение шага
 
-  // $('html,body').animate({scrollTop:$('.discount-block').offset().top+"px"},{duration:150});
+  var formInput;
+  var stage = $(this).attr('data-stage');
 
-  var formInput = $(this).parents('.application-form-wrapper');
-  e.preventDefault();
-  // if (checkSubmitButton(formInput)) {
 
-// получаем значение шага
-var stage = $(this).attr('data-stage');
+   // прописываем варианты проверок
+
+
+   if (stage == 1) {
+    formInput = 1; // проход без проверки
+  }
+  if (stage == 2) {
+    formInput = $(this).parents('.application-form-wrapper');
+  }
+
+  // условие если был переход с кнопки калькулятора
+  if (stage == 2 && $(this).hasClass('form-data-stage')) {
+    formInput = $(this).parents('.calculator__form');
+  }
+
+
+  if (stage == 3 ) {
+    if ($('[data-ul-type="remote"]').hasClass('active')) {
+      formInput = $('.discount-block__ul-remote'); 
+    }
+  }
+    if (stage == 4) {
+      formInput = $(this).parents('.application-form-wrapper');
+    }
+
+    if (stage == 4 && $('.discount-block__type-button--fl').hasClass('active')) {
+    formInput = 1; // проход без проверки
+  }
+  if (stage == 4 && $('.discount-block__ul-type-item').hasClass('active')) {
+    if ($('#upload').val() != '') {
+      formInput = 1;
+    } else {
+      $('.discount-block__ul-traditional-upload-text').text('Файл не выбран');
+      $('.discount-block__ul-traditional-upload').addClass('error')
+    }
+  }
+
+  // показываем строку с цифрами
+if ($('.discount-block__stage').is(':hidden'))  {
+ $('.discount-block__stage').fadeIn(300);
+}
+
+
+// переход вперед если прошел субмит
+if (checkSubmitButton(formInput)) {
+
+  $('html,body').animate({scrollTop:$('.discount-block').offset().top+"px"},{duration:300});
 
 // меняем заголовки в зависимости от шага
+if (stage == 1) {
+ $('.discount-block__title').text(stagetext2);
+}
 if (stage == 2) {
  $('.discount-block__title').text(stagetext2);
 }
@@ -244,16 +276,34 @@ if (stage == 4) {
     // если это финальная часть то скрываем форму совсем и выводим сообщение о скидке
     $('.discount-block__title').text(stagetext4);
     $('.application-form').hide();
-    $('.discount-block__stage').fadeOut(100);
+    $('.discount-block__stage').hide();
   }
 
+// скролл сразу ко второму шагу с кнопки калькулятора 
+if ($(this).hasClass('form-data-stage')) {
 
-  if (stage == 2) {
+    // передаем значения из первой формы в поля формы на первом шаге
+
+    $('.form-item__name').val($('.form-item__name-calc').val());
+    $('.form-item__phone').val($('.form-item__name-phone').val());
+    $('.form-item__email').val($('.form-item__name-email').val());
+
+   // смотрим на кол-во человек в калькуляторе и заранее подставляем это значение в третий шаг сотрудников
+
+   var countmember = $('.calculator__human-number').val();
+   $('.discount-block__member-wrapper').empty(); // удаляем все
+   $('.discount-block__member-wrapper').append(addMember(countmember)); // вставляем нужное кол-во
+   calculatorForm(); 
+ }
+
+ if (stage == 2) {
     // переносим данные из первого окна формы в дивы на втором окне
     $('.discount-block__next-name').text($('.form-item__name').val());
     $('.discount-block__next-phone').text($('.form-item__phone').val());
     $('.discount-block__next-email').text($('.form-item__email').val());
   }
+
+
 
 // переключаем шаг у обертки для визуального оформления
 $('[data-stage-wrapper]').attr('data-stage-wrapper', stage);
@@ -263,14 +313,11 @@ $('[data-stage-wrapper]').attr('data-stage-wrapper', stage);
   $('[data-stage-item="'+stage+'"]').addClass('active-stage');
 
   // скрываем прошлую форму
-  $('[data-fieldset]').fadeOut();
+  $('[data-fieldset]').hide();
   // погазываем форму текущего шага
   $('[data-fieldset="'+stage+'"]').fadeIn(300);
-// }
+}
 });
-
-
-
 
 
 // клик по кнопке физического лица 
@@ -317,8 +364,8 @@ $('[data-ul-type]').click(function() {
     // получаем атрибут для переключения обертки
     var ultype = $(this).attr('data-ul-type');
 // переключаем кнопку
-    $('[data-ul-type]').removeClass('active');
-    $(this).addClass('active');
+$('[data-ul-type]').removeClass('active');
+$(this).addClass('active');
     // если каким-то чудом скрыт низ, показываем его
     if ($('.discount-block__ul-wrapper').is(':hidden')) {
       $('.discount-block__ul-wrapper').fadeIn(300);
@@ -346,6 +393,7 @@ $('.discount-block__ul-traditional-upload-input').change(function() {
     $('.discount-block__ul-traditional-upload-text').text(document.getElementById('upload').files[0].name);
   } else {
     $('.discount-block__ul-traditional-upload').removeClass('full');
+    $('.discount-block__ul-traditional-upload').removeClass('error');
     $('.discount-block__ul-traditional-upload-text').text('Загрузить заполненный бланк');
   }
 });
@@ -376,61 +424,30 @@ $('.discount-block__back-button').click(function () {
  }
 
 // скрываем старые формы, открываем предыдущие 
- $('[data-stage-wrapper]').attr('data-stage-wrapper', stageold);
- $('[data-stage-item].active-stage').removeClass('active-stage');
- $('[data-stage-item="'+stageold+'"]').addClass('active-stage');
- $('[data-fieldset]').fadeOut(100);
- $('[data-fieldset="'+stageold+'"]').fadeIn(300);
+$('[data-stage-wrapper]').attr('data-stage-wrapper', stageold);
+$('[data-stage-item].active-stage').removeClass('active-stage');
+$('[data-stage-item="'+stageold+'"]').addClass('active-stage');
+$('[data-fieldset]').hide();
+$('[data-fieldset="'+stageold+'"]').fadeIn(300);
 
 });
 
-
-
-// скролл сразу ко второму шагу с кнопки калькулятора 
-$('.form-data-stage').click(function (e) {
-  var formInput = $(this).parents('form');
-  e.preventDefault();
-  // проверка на заполненность формы
-  if (checkSubmitButton(formInput)) {
-
-    // передаем значения из первой формы в поля формы на первом шаге и добавляем эти же значения во второй шаг
-
-   $('.form-item__name').val($('.form-item__name-calc').val());
-   $('.form-item__phone').val($('.form-item__name-phone').val());
-   $('.form-item__email').val($('.form-item__name-email').val());
-
-   $('.discount-block__next-name').text($('.form-item__name').val());
-   $('.discount-block__next-phone').text($('.form-item__phone').val());
-   $('.discount-block__next-email').text($('.form-item__email').val());
-
-
-   $('html,body').animate({scrollTop:$('.discount-block').offset().top+"px"},{duration:1E3});
-
-   // смотрим на кол-во человек в калькуляторе и заранее подставляем это значение в третий шаг сотрудников
-
-   var countmember = $('.calculator__human-number').val();
-   $('.discount-block__member-wrapper').empty(); // удаляем все
-   $('.discount-block__member-wrapper').append(addMember(countmember)); // вставляем нужное кол-во
-   calculatorForm(); 
-
- }
-});
 
 
 function addMember(countmember) {
   // цикл сделан для возможности смены кол-ва добавления за один раз
 
- for (var i = 0; i < countmember; i++) {
-  $('.discount-block__member-wrapper').append('<li class="discount-block__member-item"><input type="text" class="form-item__input form-item__member-name fullname" placeholder="ФИО"/><input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/><div href="#" class="form-item__remove">X</div></li>');
+  for (var i = 0; i < countmember; i++) {
+    $('.discount-block__member-wrapper').append('<li class="discount-block__member-item"><div class="form-dicount-item"><input type="text" class="form-item__input form-item__member-name fullname" placeholder="ФИО" required/></div><input type="text" class="form-item__input form-item__member-post" placeholder="Должность"/><div href="#" class="form-item__remove">X</div></li>');
 
-$(".discount-block__member-wrapper input[type='text']").each(function() {
-  $(this).suggestions = $("body").suggestions;
-    $(this).suggestions({
-      token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
+    $(".discount-block__member-wrapper input[type='text']").each(function() {
+      $(this).suggestions = $("body").suggestions;
+      $(this).suggestions({
+        token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
         type: "NAME",
         count: 5
-});});
-}
+      });});
+  }
 }
 
 // Кнопка добавления сотрудника 
@@ -475,11 +492,11 @@ $('html').on('change focusout','.form-item__input', function () {
 
 
 // подключение фио к блокам с фио
- $(".fullname").suggestions({
-        token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
-        type: "NAME",
-        count: 5
-    });
+$(".fullname").suggestions({
+  token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
+  type: "NAME",
+  count: 5
+});
 
 
 $("#inn").change(function(e) {
@@ -552,7 +569,6 @@ function clearParty() {
 
 function clearBank() {
   $("#bank").val("");
-  $("#kpp").val("");
   $("#correspondent-acc").val("");
 }
 
@@ -622,14 +638,14 @@ $('.form__sumbit').click(function(e) {
 
 setTimeout(function(){
   if ($.cookie('modalCookie')) {
-} else {
-$('.modal').addClass('active');
-  $('[data-modal="cookie"]').show();
-  setTimeout(function () {
-    $('.modal').addClass('in');
-  }, 100);
-  $.cookie('modalCookie', 1, { expires: 7});
-}
+  } else {
+    $('.modal').addClass('active');
+    $('[data-modal="cookie"]').show();
+    setTimeout(function () {
+      $('.modal').addClass('in');
+    }, 100);
+    $.cookie('modalCookie', 1, { expires: 7});
+  }
 }, 40000);
 
 

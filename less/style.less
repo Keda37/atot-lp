@@ -1673,9 +1673,6 @@ body {
   margin-top: 10px;
   display: none;
 
-  &-text-discount {
-        display: none;
-      }
 }
 
 &__ul-type {
@@ -1719,7 +1716,7 @@ body {
   }
   &-title {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: bold;F
     text-align: center;
     color: #ffffff;
     line-height: 22px;
@@ -1800,8 +1797,9 @@ body {
     &-input {
       display: none;
     }
-    &-text {
-
+    &.error {
+      opacity: 1;
+      color: #b20933;
     }
   }
   &-text {
@@ -1838,9 +1836,14 @@ body {
    margin-right: 40px;
    cursor: pointer;
  }
- &-input {
+ .form-dicount-item {
   max-width: 380px;
+  position: relative;
+  width: 100%;
+ }
 
+.form-item__checkbox label {
+  max-width: 280px;
 }
 }
 }
@@ -2698,7 +2701,10 @@ body {
 }
 }
 
-.form-item.has-error {
+
+
+.form-item.has-error,
+.form-dicount-item.has-error {
 
   &:before {
     content: '';
@@ -2722,6 +2728,10 @@ body {
     top: 12px;
     right: 10px;
     background: url(../image/ic-error-outline-24-px.svg) center no-repeat;
+  }
+
+  input {
+    padding-right: 40px;
   }
 
 }
