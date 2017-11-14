@@ -24,11 +24,11 @@ function checkSubmitButton(formInput) {
         parentInput.addClass('has-error');
         errorInput = errorInput + 1;
       } else {
-        parentInput.removeClass('has-error'); 
+        parentInput.removeClass('has-error');
 
         if ($(this).hasClass('mail-input')) {
           if(validateEmail(email)) {
-            parentInput.removeClass('has-error'); 
+            parentInput.removeClass('has-error');
           } else {
            parentInput.addClass('has-error');
          }
@@ -39,7 +39,7 @@ function checkSubmitButton(formInput) {
     if (agreeCheck.length > 0) {
       if(!agreeCheck.prop('checked')) {
         agreeError.css('display', 'block');
-        errorInput = errorInput + 1; 
+        errorInput = errorInput + 1;
       } else {
         agreeError.css('display', 'none');
       }
@@ -153,7 +153,7 @@ $('.calculator__human-price').text(String(summ).replace(/(\d)(?=(\d{3})+([^\d]|$
 }
 
 
-// калькулятор на последнем экране формы 
+// калькулятор на последнем экране формы
 
 function calculatorForm() {
   var member = $('.discount-block__member-wrapper li').length; // берем значение кол-ва от кол-ва сотрудников
@@ -174,14 +174,14 @@ summ = summ + consultexpert;
 
 // добавляем скидку при заполнении на сайте
 
-summ = summ - (summ * discountform); 
+summ = summ - (summ * discountform);
 
 // выводим значение в блок с разбивкой по разрядам
 $('.discount-block__member-calc-number').text(String(summ).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 '));
 }
 
 //////////////////////////////////////////
-// Конец калькулятора 
+// Конец калькулятора
 /////////////////////////////////////////
 
 // маска в инпутах телефона
@@ -232,14 +232,14 @@ $('[data-stage]').click(function(e) {
 
   if (stage == 3 ) {
     if ($('[data-ul-type="remote"]').hasClass('active')) {
-      formInput = $('.discount-block__ul-remote'); 
+      formInput = $('.discount-block__ul-remote');
     }
   }
-    if (stage == 4) {
-      formInput = $(this).parents('.application-form-wrapper');
-    }
+  if (stage == 4) {
+    formInput = $(this).parents('.application-form-wrapper');
+  }
 
-    if (stage == 4 && $('.discount-block__type-button--fl').hasClass('active')) {
+  if (stage == 4 && $('.discount-block__type-button--fl').hasClass('active')) {
     formInput = 1; // проход без проверки
   }
   if (stage == 4 && $('.discount-block__ul-type-item').hasClass('active')) {
@@ -252,9 +252,9 @@ $('[data-stage]').click(function(e) {
   }
 
   // показываем строку с цифрами
-if ($('.discount-block__stage').is(':hidden'))  {
- $('.discount-block__stage').fadeIn(300);
-}
+  if ($('.discount-block__stage').is(':hidden'))  {
+   $('.discount-block__stage').fadeIn(300);
+ }
 
 
 // переход вперед если прошел субмит
@@ -279,7 +279,7 @@ if (stage == 4) {
     $('.discount-block__stage').hide();
   }
 
-// скролл сразу ко второму шагу с кнопки калькулятора 
+// скролл сразу ко второму шагу с кнопки калькулятора
 if ($(this).hasClass('form-data-stage')) {
 
     // передаем значения из первой формы в поля формы на первом шаге
@@ -293,7 +293,7 @@ if ($(this).hasClass('form-data-stage')) {
    var countmember = $('.calculator__human-number').val();
    $('.discount-block__member-wrapper').empty(); // удаляем все
    $('.discount-block__member-wrapper').append(addMember(countmember)); // вставляем нужное кол-во
-   calculatorForm(); 
+   calculatorForm();
  }
 
  if (stage == 2) {
@@ -320,7 +320,7 @@ $('[data-stage-wrapper]').attr('data-stage-wrapper', stage);
 });
 
 
-// клик по кнопке физического лица 
+// клик по кнопке физического лица
 
 $('.discount-block__type-button--fl').click(function() {
   // делаем проверку чтобы нельзя было кликнуть по уже активному блоку
@@ -336,7 +336,7 @@ $('.discount-block__final-text-discount').show();
 }
 });
 
-// клик по кнопке юридического лица 
+// клик по кнопке юридического лица
 $('.discount-block__type-button--yl').click(function() {
   if (!$(this).hasClass('active')) {
     $('.discount-block__type-button.active').removeClass('active');
@@ -399,7 +399,7 @@ $('.discount-block__ul-traditional-upload-input').change(function() {
 });
 
 
-// кнопка назад 
+// кнопка назад
 
 $('.discount-block__back-button').click(function () {
 
@@ -423,7 +423,7 @@ $('.discount-block__back-button').click(function () {
    $('.discount-block__title').text(stagetextul);
  }
 
-// скрываем старые формы, открываем предыдущие 
+// скрываем старые формы, открываем предыдущие
 $('[data-stage-wrapper]').attr('data-stage-wrapper', stageold);
 $('[data-stage-item].active-stage').removeClass('active-stage');
 $('[data-stage-item="'+stageold+'"]').addClass('active-stage');
@@ -443,14 +443,14 @@ function addMember(countmember) {
     $(".discount-block__member-wrapper input[type='text']").each(function() {
       $(this).suggestions = $("body").suggestions;
       $(this).suggestions({
-        token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
+        token: "e4c696c6b895a2fa07d0d0290b8445dffd0f6c7d",
         type: "NAME",
         count: 5
       });});
   }
 }
 
-// Кнопка добавления сотрудника 
+// Кнопка добавления сотрудника
 
 $('.discount-block__member-add').click(function() {
   addMember(1); // добавляем одного сотрудника, можно поменять
@@ -458,18 +458,18 @@ $('.discount-block__member-add').click(function() {
 });
 
 
-// удаление сотрудника 
-$('html').on('click','.form-item__remove', function () {         
+// удаление сотрудника
+$('html').on('click','.form-item__remove', function () {
   $(this).parent('.discount-block__member-item').remove();
-  calculatorForm(); 
+  calculatorForm();
 });
 
 // Анимация инпутов, сделана чуть сложнее, т.к. часть инпутов стала динамической
-$('html').on('change focusin','.form-item__input', function () {         
+$('html').on('change focusin','.form-item__input', function () {
   $(this).addClass('active');
 });
 
-$('html').on('change focusout','.form-item__input', function () {         
+$('html').on('change focusout','.form-item__input', function () {
   var field = $(this).val();
   var fieldtrim = $.trim(field);
   if (fieldtrim == '') {
@@ -493,7 +493,7 @@ $('html').on('change focusout','.form-item__input', function () {
 
 // подключение фио к блокам с фио
 $(".fullname").suggestions({
-  token: "a1625ca1d062aa90f768acb14fe198cbe916527c",
+  token: "e4c696c6b895a2fa07d0d0290b8445dffd0f6c7d",
   type: "NAME",
   count: 5
 });
@@ -527,7 +527,7 @@ $("#bik").change(function(e) {
 
 function suggestINN(query) {
   var serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party",
-  token = "a1625ca1d062aa90f768acb14fe198cbe916527c"; // поменять на свой!!!!
+  token = "e4c696c6b895a2fa07d0d0290b8445dffd0f6c7d"; // поменять на свой!!!!
   var request = {
     "query": query
   };
@@ -545,7 +545,7 @@ function suggestINN(query) {
 
 function suggestBIK(query) {
   var serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/bank",
-  token = "a1625ca1d062aa90f768acb14fe198cbe916527c"; // поменять!!!!!
+  token = "e4c696c6b895a2fa07d0d0290b8445dffd0f6c7d"; // поменять!!!!!
   var request = {
     "query": query
   };
@@ -624,18 +624,21 @@ $('.modal__button').click(function(e) {
 
 // отправка формы, с кнопки отправить заявку, проверка на валидацию, открытие модального окна в конце
 $('.form__sumbit').click(function(e) {
-
   var formInput = $(this).parents('form');
+  var formWrapper = $(this).parents('.modal__wrapper')
   e.preventDefault();
   if (checkSubmitButton(formInput)) {
-    $('.modal form').hide();
-    $('.modal__title').html("Cпасибо,<br>Ваша заявка принята");
-    $('.form-item__submit.modal-close').show();
+    $(formInput).hide();
+    $('.modal__title', formWrapper).html("Cпасибо,<br>Ваша заявка принята");
+    $('.form-item__submit.modal-close',  formWrapper).show();
+    formInput.find('[name=send_modal]').val(6);
+    formInput.submit();
+    return true;
   }
 });
 
 // Модальное окно через 40 секунд после нахождения на сайте с куками в 7 дней
-
+/*
 setTimeout(function(){
   if ($.cookie('modalCookie')) {
   } else {
@@ -647,7 +650,7 @@ setTimeout(function(){
     $.cookie('modalCookie', 1, { expires: 7});
   }
 }, 40000);
-
+*/
 
 
 // Закрытие модального окна
@@ -670,8 +673,25 @@ $('.header__menu-button').click(function() {
 
 });
 
+$(window).on('load resize', function() {
+  if (innerWidth > 1279) {
+    if ($(".video-info__row").hasClass('slick-slider')) {
+      $(".video-info__row").slick('unslick');
+    }
+  } else {
+    $(".video-info__row").not('.slick-initialized').slick({
+      variableWidth: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: false,
+      centerMode: true,
+      infinite: false,
+    });
+  }
+});
 
-$(window).on('load resize', function() { 
+$(window).on('load resize', function() {
   if (innerWidth > 699) {
     if ($(".header__about-row").hasClass('slick-slider')) {
       $(".header__about-row").slick('unslick');
@@ -682,9 +702,7 @@ $(window).on('load resize', function() {
     if ($(".traning-block__item-wrapper").hasClass('slick-slider')) {
       $(".traning-block__item-wrapper").slick('unslick');
     }
-    if ($(".video-info__row").hasClass('slick-slider')) {
-      $(".video-info__row").slick('unslick');
-    }
+
     if ($(".profit__row").hasClass('slick-slider')) {
       $(".profit__row").slick('unslick');
     }
@@ -716,14 +734,7 @@ $(window).on('load resize', function() {
       arrows: false,
       centerMode: true,
     });
-    $(".video-info__row").not('.slick-initialized').slick({
-      variableWidth: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots: true,
-      arrows: false,
-      centerMode: true,
-    });
+ 
     $(".profit__row").not('.slick-initialized').slick({
       variableWidth: true,
       slidesToShow: 1,
@@ -742,11 +753,3 @@ $(window).on('load resize', function() {
     });
   }
 });
-
-
-
-
-
-
-
-
