@@ -3305,6 +3305,8 @@ li.slick-active button {
       max-width: 400px;
       margin-left: auto;
       margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
     }
     &__list {
       margin-top: 45px;
@@ -3492,7 +3494,6 @@ li.slick-active button {
       margin-top: 40px;
       padding-left: 20px;
       padding-right: 20px;
-      box-sizing: border-box;
     }
   }
   &__form {
@@ -3770,42 +3771,10 @@ li.slick-active button {
   margin-left: auto;
   margin-right: auto;
 }
-}
-
-@media screen and (max-width: 560px) {
-  .reviews__text {
-    &-row {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    &-item {
-      flex-wrap: wrap;
-      height: auto;
-      justify-content: center;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      margin-left: 0;
-      margin-right: 0;
-      &:first-child {
-        margin-bottom: 20px;
-      }
-    }
-    &-numb {
-      width: 100%;
-    }
-    &-text {
-      width: ~'calc(100% - 40px)';
-      max-width: 350px;
-      text-align: center;
-      margin-top: 20px;
-      padding-right: 0;
-      font-size: 20px;
-      line-height: 24px;
-
-    }
-  }
-
 .discount-block {
+  &__stage {
+    max-width: 280px;
+  }
   &__stage-item--center {
     margin-left: 90px;
     margin-right: 90px;
@@ -3835,7 +3804,6 @@ li.slick-active button {
   }
   &-item {
     width: 100%;
-    max-width: 280px;
     margin-left: auto;
     margin-right: auto;
     &:first-child {
@@ -3906,6 +3874,40 @@ margin-right: 0;
 .form-dicount-item {
   margin-right: 0;
 }
+}
+
+@media screen and (max-width: 560px) {
+  .reviews__text {
+    &-row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    &-item {
+      flex-wrap: wrap;
+      height: auto;
+      justify-content: center;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      margin-left: 0;
+      margin-right: 0;
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+    &-numb {
+      width: 100%;
+    }
+    &-text {
+      width: ~'calc(100% - 40px)';
+      max-width: 350px;
+      text-align: center;
+      margin-top: 20px;
+      padding-right: 0;
+      font-size: 20px;
+      line-height: 24px;
+
+    }
+  }
 
 
   .footer {
